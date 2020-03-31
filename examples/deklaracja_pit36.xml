@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:Deklaracja xmlns:etd="http://crd.gov.pl/xml/schematy/dziedzinowe/mf/2018/08/24/eD/DefinicjeTypy/"
+                xmlns:tns="http://crd.gov.pl/wzor/2020/01/21/9033/"
+                xmlns:zb36="http://crd.gov.pl/xml/schematy/dziedzinowe/mf/2020/01/14/eD/PITB36/"
+                xmlns:zo3x="http://crd.gov.pl/xml/schematy/dziedzinowe/mf/2019/12/19/eD/PITO3X/"
+>
+    <tns:Naglowek>
+        <!--Tutaj przykładowe dane dla PITu 36 za rok 2019 -->
+        <!--Jeśli chcecie wypełnić inny PIT to trzeba znaleźć go na stronie https://www.podatki.gov.pl/e-deklaracje/dokumentacja-it/struktury-dokumentow-xml/, pobrać schemat i przepisać odpowiednie wartości -->
+        <tns:KodFormularza kodSystemowy="PIT-36 (27)"
+                           kodPodatku="PIT"
+                           rodzajZobowiazania="Z"
+                           wersjaSchemy="1-1E">PIT-36</tns:KodFormularza>
+        <tns:WariantFormularza>27</tns:WariantFormularza>
+        <tns:CelZlozenia poz="P_10">1</tns:CelZlozenia>
+        <tns:Rok>2019</tns:Rok>
+        <tns:KodUrzedu>1210</tns:KodUrzedu>
+    </tns:Naglowek>
+    <tns:Podmiot1 rola="Podatnik">
+        <etd:OsobaFizyczna>
+            <etd:NIP>898998</etd:NIP> <!--albo PIT -->
+            <etd:ImiePierwsze>Genowefa</etd:ImiePierwsze>
+            <etd:Nazwisko>Pitowa</etd:Nazwisko>
+            <etd:DataUrodzenia>1990-11-03</etd:DataUrodzenia>
+        </etd:OsobaFizyczna>
+        <etd:AdresZamieszkania rodzajAdresu="RAD">
+            <etd:AdresPol>
+                <etd:KodKraju>PL</etd:KodKraju>
+                <etd:Wojewodztwo>małopolskie</etd:Wojewodztwo>
+                <etd:Powiat>Kraków</etd:Powiat>
+                <etd:Gmina>Kraków</etd:Gmina>
+                <etd:Ulica>Obrońców Skarbówki</etd:Ulica>
+                <etd:NrDomu>98</etd:NrDomu>
+                <etd:NrLokalu>666</etd:NrLokalu>
+                <etd:Miejscowosc>Kraków</etd:Miejscowosc>
+                <etd:KodPocztowy>30-678</etd:KodPocztowy>
+            </etd:AdresPol>
+        </etd:AdresZamieszkania>
+    </tns:Podmiot1>
+    <tns:Podmiot2 rola="Małżonek"> <!--Przykład dla rozliczenia wspólnie z małżonkiem -->
+        <tns:OsobaFizyczna>
+            <etd:PESEL>90031365756</etd:PESEL>
+            <etd:ImiePierwsze>Adam</etd:ImiePierwsze>
+            <etd:Nazwisko>Pitowy</etd:Nazwisko>
+            <etd:DataUrodzenia>1990-03-13</etd:DataUrodzenia>
+        </tns:OsobaFizyczna>
+        <tns:AdresZamieszkania rodzajAdresu="RAD">
+            <etd:AdresPol>
+                <etd:KodKraju>PL</etd:KodKraju>
+                <etd:Wojewodztwo>małopolskie</etd:Wojewodztwo>
+                <etd:Powiat>Kraków</etd:Powiat>
+                <etd:Gmina>Kraków</etd:Gmina>
+                <etd:Ulica>Obrońców Skarbówki</etd:Ulica>
+                <etd:NrDomu>98</etd:NrDomu>
+                <etd:NrLokalu>666</etd:NrLokalu>
+                <etd:Miejscowosc>Kraków</etd:Miejscowosc>
+                <etd:KodPocztowy>30-678</etd:KodPocztowy>
+            </etd:AdresPol>
+        </tns:AdresZamieszkania>
+    </tns:Podmiot2>
+    <tns:PozycjeSzczegolowe> <!--Przepisujemy wypełnione pola z deklaracji PDF (pustych pól nie przepisujemy) -->
+        <tns:P_6>1</tns:P_6> <!--pozycja nr 6, kwadrat nr 2. Wartość 1 oznacza zaznaczenie (w tym wypadku jest to Wybór sposobu opodatkowania -> wspólnie z małżonkiem) -->
+        <tns:P_63>98098.67</tns:P_63> <!--wartość numeryczna dla pozycji nr 63 -->
+        <!--........ -->
+        <tns:P_464_1>1</tns:P_464_1>
+        <tns:P_464_2>1</tns:P_464_2> <!--można zaznaczyć więcej niż jeden kwadrat -->
+    </tns:PozycjeSzczegolowe>
+    <tns:Oswiadczenie>1</tns:Oswiadczenie>
+    <tns:Pouczenia>1</tns:Pouczenia>
+    <tns:Zalaczniki>
+
+        <zo3x:Zalacznik_PIT_O> <!--dodajemy załączniki wg uznania. Kody do nagłówków pobieramy tak samo jak dla głównego formularza-->
+            <zo3x:Naglowek>
+                <zo3x:KodFormularza kodSystemowy="PIT/OD (24)" wersjaSchemy="1-0E">PIT/O</zo3x:KodFormularza>
+                <zo3x:WariantFormularza>24</zo3x:WariantFormularza>
+            </zo3x:Naglowek>
+            <zo3x:Podmiot1 rola="Podatnik">
+                <etd:NIP>898998</etd:NIP> <!--albo PIT -->
+                <etd:ImiePierwsze>Genowefa</etd:ImiePierwsze>
+                <etd:Nazwisko>Pitowa</etd:Nazwisko>
+                <etd:DataUrodzenia>1990-11-03</etd:DataUrodzenia>
+            </zo3x:Podmiot1>
+            <zo3x:Podmiot2 rola="Małżonek">
+                <etd:PESEL>90031365756</etd:PESEL>
+                <etd:ImiePierwsze>Adam</etd:ImiePierwsze>
+                <etd:Nazwisko>Pitowy</etd:Nazwisko>
+                <etd:DataUrodzenia>1990-03-13</etd:DataUrodzenia>
+            </zo3x:Podmiot2>
+            <zo3x:PozycjeSzczegolowe>
+                <zo3x:P_4>1</zo3x:P_4>
+                <zo3x:P_11>90</zo3x:P_11>
+                <zo3x:P_D typ="G"> <!--tu zamiast numerka mamy numer sekcji -->
+                    <zo3x:P_D1>FUNDACJA SIEPOMAGA</zo3x:P_D1>
+                    <zo3x:P_D3>PL</zo3x:P_D3>
+                    <zo3x:P_D4>90</zo3x:P_D4>
+                </zo3x:P_D>
+                <zo3x:P_34>90</zo3x:P_34>
+                <zo3x:P_48>0</zo3x:P_48>
+            </zo3x:PozycjeSzczegolowe>
+        </zo3x:Zalacznik_PIT_O>
+    </tns:Zalaczniki>
+    <podp:DaneAutoryzujace xmlns:podp="http://e-deklaracje.mf.gov.pl/Repozytorium/Definicje/Podpis/">
+        <podp:NIP>898998</podp:NIP> <!--albo PIT -->
+        <podp:ImiePierwsze>Genowefa</podp:ImiePierwsze>
+        <podp:Nazwisko>Pitowa</podp:Nazwisko>
+        <podp:DataUrodzenia>1990-11-03</podp:DataUrodzenia>
+        <podp:Kwota>39080.59</podp:Kwota> <!--kwota przychodu za poprzedni rok -->
+    </podp:DaneAutoryzujace>
+</tns:Deklaracja>
