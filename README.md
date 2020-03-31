@@ -6,5 +6,3 @@
 3) Przygotuj plik XML na podstawie [przykładu](examples/deklaracja_pit36.xml). Wpisz wartości z interaktywnego formularza, który właśnie wypełniłeś.
 4) Zainstaluj klient edeklaracji: `pip3 install edeklaracje_client`
 5) Wyślij deklarację z pliku XML: `edeklaracje send_document twoj_plik.xml`
-
-Więcej informacji o działaniu klienta można uzyskać.
