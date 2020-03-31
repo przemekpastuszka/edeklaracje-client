@@ -1,7 +1,7 @@
 import argparse
 import logging.config
 
-from edeklaracje.client import EDeklaracjeClient, Environment
+from edeklaracje_client.client import EDeklaracjeClient, Environment
 
 
 def setup_verbose_logging():
@@ -51,23 +51,22 @@ def _add_common_args(parser):
     parser.add_argument("-t", "--timeout_in_seconds", help="time (in seconds) to wait for document processing on eDeklaracje side", type=int, default=600)
 
 
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser(description='Send declaration to eDeklaracje')
-
     subparsers = parser.add_subparsers(required=True, dest='command')
     document_send_parser = subparsers.add_parser('send_document', help="Sends document and waits for UPO")
     document_send_parser.add_argument('file', type=str, help='path to the xml file with declaration')
     document_send_parser.set_defaults(command=send_declaration)
     _add_common_args(document_send_parser)
-
     wait_for_upo_parser = subparsers.add_parser('wait_for_upo', help="Waits for UPO for a given refId")
     wait_for_upo_parser.add_argument('refId', type=str, help='refId to wait on')
     wait_for_upo_parser.set_defaults(command=wait_for_upo)
     _add_common_args(wait_for_upo_parser)
-
     args = parser.parse_args()
-
     if args.verbose:
         setup_verbose_logging()
-
     args.command(args)
+
+
+if __name__ == "__main__":
+    main()

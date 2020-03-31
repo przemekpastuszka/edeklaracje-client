@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import io
 
-import edeklaracje
+import edeklaracje_client
 
 
 def read_lines(file_path):
@@ -10,8 +10,8 @@ def read_lines(file_path):
 
 
 setup(
-    name="edeklaracjeclient",
-    version=edeklaracje.__version__,
+    name="edeklaracje_client",
+    version=edeklaracje_client.__version__,
     author="Przemyslaw Pastuszka",
     author_email="pastuszka.przemyslaw@gmail.com",
     license="MIT",
@@ -23,5 +23,10 @@ setup(
     long_description_content_type="text/markdown",
     python_requires=">=3.5",
     packages=find_packages(),
-    install_requires=read_lines("requirements.txt")
+    install_requires=read_lines("requirements.txt"),
+    entry_points={
+        'console_scripts': [
+            'edeklaracje = edeklaracje_client.console:main',
+        ],
+    }
 )
